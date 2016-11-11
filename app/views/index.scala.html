@@ -10,7 +10,7 @@
  * argument is a `String` with the title of the page, the second
  * argument is an `Html` object containing the body of the page.
  *@
-@main("Welcome") {
+@main("Home") {
 
     @*
      * Get an `Html` object by calling the built-in Play welcome
@@ -22,6 +22,32 @@
     <!--@play20.welcome(message, style = "Scala")-->
 
     <!--displaying the message passed on from the HomeController-->
-    @message
+    <!--@message-->
 
-}
+    <!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <h1>@message</h1>
+    <h2>
+      <p>Here we display some video game statistics</p>
+    </h2>
+    <br> <hr class="style1" > </br>
+    <h3>
+      <a href="https://topseven7.herokuapp.com/clubs/ligue_1">French Ligue 1</a>
+      <a href="https://topseven7.herokuapp.com/clubs/premier">English Premier</a>
+      <a href="https://topseven7.herokuapp.com/clubs/laliga">Spanish LaLiga</a>
+      <a href="https://topseven7.herokuapp.com/clubs/bundesliga">German bundesliga</a>
+      <a href="https://topseven7.herokuapp.com/clubs/serie_a">Itallian Serie A</a>
+      <a href="https://topseven7.herokuapp.com/clubs/liga_mx">Mexican Liga MX</a>
+      <a href="https://topseven7.herokuapp.com/clubs/primeira">Portuguese Liga Nos</a>
+    </h3>
+      <br> <hr class="style1" > </br>
+      <h4>
+      <a href="https://topseven7.herokuapp.com/leagues">This is data for each league.</a>
+    </h4>
+  </body>
+</hmtl>
+  }

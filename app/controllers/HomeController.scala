@@ -18,7 +18,17 @@ class HomeController @Inject() extends Controller {
    * a path of `/`.
    */
   def index = Action {
-    Ok(views.html.index("World Development Data."))
+    Ok(views.html.index("Video game data analaysis"))
   }
+
+  //Can call this function to redirect to index page from wherever
+  def redirect = Action { implicit request =>
+    Redirect(routes.HomeController.index())
+  }
+
+  //Function to load JSON in plain text in an html page
+  def getTestName = Action {
+   Ok("")
+ }
 
 }
