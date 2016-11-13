@@ -3,6 +3,8 @@ package controllers
 import javax.inject._
 import play.api._
 import play.api.mvc._
+import play.api.libs.json._
+import scala.io.Source
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
@@ -18,7 +20,7 @@ class HomeController @Inject() extends Controller {
    * a path of `/`.
    */
   def index = Action {
-    Ok(views.html.index("Video game data analaysis"))
+    Ok(views.html.index("Video game data analysis"))
   }
 
   //Can call this function to redirect to index page from wherever
@@ -30,5 +32,16 @@ class HomeController @Inject() extends Controller {
   def getTestName = Action {
    Ok("")
  }
+	
+val source: String = Source.fromFile("app/assets/videogames.json").getLines.mkString
+val json: JsValue = Json.parse(source)
 
+
+
+
+
+
+	def getNaSales = Action{
+	Ok(views.html.na_sales(source))
+}
 }
