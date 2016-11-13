@@ -1,8 +1,8 @@
 html, body{
-  background-color: #f0f0f0;
+  background-color:white;
   width: auto;
   float: center;
-  margin-top: 35px;
+  margin-top: 10px;
   font-family: monospace;
 }
 h1 {
@@ -34,9 +34,9 @@ h4 {
 }
 
 a:link{
-  color: #00828f;
+  color: #272e38;
   outline: 1px solid;
-    outline-color: #00828f;
+    outline-color: #272e38;
     padding: 14px 25px;
     text-align: center;
     text-decoration: none;
@@ -44,8 +44,8 @@ a:link{
 }
 
 a:hover, a:active {
-  color: #80000b;
-  background-color: #00828f;
+  color: #ffffff;
+  background-color: #042860;
 }
 
 a.visited{
