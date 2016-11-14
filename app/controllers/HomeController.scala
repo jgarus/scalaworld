@@ -5,7 +5,9 @@ import play.api._
 import play.api.mvc._
 import play.api.libs.json._
 import scala.io.Source
-import play.api.libs.json.JsValue
+import org.json4s._
+import org.json4s.native.JsonMethods._
+//import play.api.libs.json.JsValue // work on this, it might be a way to send json unhindered to views
 
   /**
   * This controller creates an `Action` to handle HTTP requests to the
@@ -31,7 +33,6 @@ import play.api.libs.json.JsValue
   val source_eu: String = Source.fromFile("app/assets/vgsales_eu.json").getLines.mkString
   val json_eu: JsValue = Json.parse(source_eu)
   val pjson_eu = Json.prettyPrint(json_eu)
-
  
   val source_jp: String = Source.fromFile("app/assets/vgsales_jp.json").getLines.mkString
   val json_jp: JsValue = Json.parse(source_jp)
@@ -51,10 +52,15 @@ import play.api.libs.json.JsValue
   val source: String = Source.fromFile("app/assets/videogames.json").getLines.mkString
   val json: JsValue = Json.parse(source)
   val pjson = Json.prettyPrint(json)
-    
- 
+       
+  val lat2 = json \\ "Name"
+  val test2: JsValue = Json.toJson(lat2)
+  
+  val lat3 = json \\ "na_sale"
+  val test3: JsValue = Json.toJson(lat3)
+       
   //Function to load JSON in plain text in an html page
-  def getNaSales = Action{ Ok(pjson_na) }
+  def getNaSales = Action{ Ok(test2) }
   
   def getEuSales = Action{ Ok(pjson_eu) }
   
