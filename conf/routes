@@ -5,8 +5,6 @@
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
 
-GET     /name                       controllers.HomeController.getTestName
-
 GET	    /na_sales	                controllers.HomeController.getNaSales
 
 # An example controller showing how to use dependency injection
