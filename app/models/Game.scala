@@ -10,11 +10,11 @@ case class Game (
   year: Int,
   genre: String,
   publisher: String,
-  na_sales: Int,
-  eu_sales: Int,
-  jp_sales: Int,
-  other_sales: Int,
-  global_sales: Int
+  na_sales: Float,
+  eu_sales: Float,
+  jp_sales: Float,
+  other_sales: Float,
+  global_sales: Float
 )
 
 object Game {
@@ -25,10 +25,10 @@ object Game {
     (JsPath \ "year").read[Int] and
     (JsPath \ "genre").read[String] and
     (JsPath \ "publisher").read[String] and
-    (JsPath \ "na_sales").read[Int] and
-    (JsPath \ "eu_sales").read[Int] and
-    (JsPath \ "jp_sales").read[Int] and
-    (JsPath \ "other_sales").read[Int] and
-    (JsPath \ "global_sales").read[Int]
+    (JsPath \ "na_sales").read[Float] and
+    (JsPath \ "eu_sales").read[Float] and
+    (JsPath \ "jp_sales").read[Float] and
+    (JsPath \ "other_sales").read[Float] and
+    (JsPath \ "global_sales").read[Float]
   )(Game.apply _)
 }
