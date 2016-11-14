@@ -1,7 +1,6 @@
 html, body{
   background-image: url("d_up.png");
   width: auto;
-  float: center;
   margin-top: 10px;
   font-family: monospace;
 }

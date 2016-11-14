@@ -19,25 +19,15 @@ import play.api.libs.json.JsValue
    * will be called when the application receives a `GET` request with
    * a path of `/`.
    */
-   
-  def index = Action {
-    Ok(views.html.index("Video game data analysis"))
-  }
+  def index = Action { Ok(views.html.index("Video game data analysis")) }
 
   //Can call this function to redirect to index page from wherever
-  def redirect = Action { implicit request =>
-    Redirect(routes.HomeController.index())
-  }
-  
-  //Function to load JSON in plain text in an html page
-  def getTestName = Action {
-    Ok("")
-  }
-	
+  def redirect = Action { implicit request => Redirect(routes.HomeController.index()) }
+ 
   val source: String = Source.fromFile("app/assets/videogames.json").getLines.mkString
   val json: JsValue = Json.parse(source)
+ 
+  //Function to load JSON in plain text in an html page
+  def getNaSales = Action{ Ok(Json.prettyPrint(json)) }
   
-  def getNaSales = Action{
-    Ok(Json.prettyPrint(json))
-  }
   }
