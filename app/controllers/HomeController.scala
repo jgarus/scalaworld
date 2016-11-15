@@ -22,7 +22,8 @@ import play.api.libs.functional.syntax._
    * will be called when the application receives a `GET` request with
    * a path of `/`.
    */
-  def index = Action { Ok(views.html.index("Video game data analysis")) }
+   
+  
 
   //Can call this function to redirect to index page from wherever
   def redirect = Action { implicit request => Redirect(routes.HomeController.index()) }
@@ -64,6 +65,11 @@ import play.api.libs.functional.syntax._
   val jp_total = jp_sales.sum
   val other_total = other_sales.sum
   val global_total = global_sales.sum
+  
+  //Send the values to HTML
+  val sp = Array(na_total, eu_total, jp_total, other_total, global_total)
+  
+  def index = Action{ Ok(views.html.index("Video Game data analysis", sp)) }
   
   //Functions to Send JSON to page
   def getNaSales = Action{ Ok(Json.prettyPrint(json_eu)) }
