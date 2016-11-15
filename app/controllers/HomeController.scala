@@ -67,9 +67,9 @@ import play.api.libs.functional.syntax._
   val global_total = global_sales.sum
   
   //Send the values to HTML
-  val sp = Array(na_total, eu_total, jp_total, other_total, global_total)
-  
-  def index = Action{ Ok(views.html.index("Video Game data analysis", sp)) }
+  val values = Array(na_total, eu_total, jp_total, other_total, global_total)
+  //Sends message and values to html
+  def index = Action{ Ok(views.html.index("Video Game data analysis", values)) }
   
   //Functions to Send JSON to page
   def getNaSales = Action{ Ok(Json.prettyPrint(json_eu)) }
