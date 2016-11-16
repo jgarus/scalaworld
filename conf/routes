@@ -17,6 +17,7 @@ GET	    /global_sales	            controllers.HomeController.getGlobalSales
 
 GET	    /sales	                    controllers.HomeController.getSales
 
+
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count
 

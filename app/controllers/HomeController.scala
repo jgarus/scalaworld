@@ -68,8 +68,31 @@ import play.api.libs.functional.syntax._
   
   //Send the values to HTML
   val values = Array(na_total, eu_total, jp_total, other_total, global_total)
+  
+  val JsonValues = Json.arr(
+    Json.obj(
+      "Region" -> "NA",
+      "Sales" -> na_total
+    ),
+    Json.obj(
+      "Region" -> "EU",
+      "Sales" -> eu_total
+    ),
+    Json.obj(
+      "Region" -> "JP",
+      "Sales" -> jp_total
+    ),
+    Json.obj(
+      "Region" -> "Other",
+      "Sales" -> other_total
+    ),
+    Json.obj(
+      "Region" -> "Global",
+      "Sales" -> global_total
+    )
+    )
   //Sends message and values to html
-  def index = Action{ Ok(views.html.index("Video Game data analysis", values)) }
+  def index = Action{ Ok(views.html.index("Video Game data analysis", JsonValues)) }
   
   //Functions to Send JSON to page
   def getNaSales = Action{ Ok(Json.prettyPrint(json_eu)) }
@@ -79,3 +102,10 @@ import play.api.libs.functional.syntax._
   def getGlobalSales = Action{ Ok(Json.prettyPrint(json_global)) }
   def getSales = Action{ Ok(Json.prettyPrint(json)) }
   }
+  
+  
+  
+  
+  
+  
+  

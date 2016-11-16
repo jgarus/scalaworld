@@ -1,5 +1,5 @@
 
-@(message: String,content: Array[Double])
+@(message: String,content: play.api.libs.json.JsArray)
 
 
 <!DOCTYPE html>
@@ -7,96 +7,105 @@
     <head>
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.ico")">
-        <script src="@routes.Assets.versioned("javascripts/hello.js")" type="text/javascript"></script>
-        <script type="text/javascript">
-            nv.addGraph(function() {
-              var chart = nv.models.discreteBarChart()
-                  .x(function(d) { return d.label })    //Specify the data accessors.
-                  .y(function(d) { return d.value })
-                  .staggerLabels(true)    //Too many bars and not enough room? Try staggering labels.
-                  .tooltips(false)        //Don't show tooltips
-                  .showValues(true)       //...instead, show the bar value right on top of each bar.
-                  .transitionDuration(350)
-                  ;
-            
-              d3.select('#chart svg')
-                  .datum(exampleData())
-                  .call(chart);
-            
-              nv.utils.windowResize(chart.update);
-            
-              return chart;
-            });
-            
-            //Each bar represents a single discrete quantity.
-            function exampleData() {
-             return  [ 
-                {
-                  key: "Cumulative Return",
-                  values: [
-                    { 
-                      "label" : "A Label" ,
-                      "value" : -29.765957771107
-                    } , 
-                    { 
-                      "label" : "B Label" , 
-                      "value" : 0
-                    } , 
-                    { 
-                      "label" : "C Label" , 
-                      "value" : 32.807804682612
-                    } , 
-                    { 
-                      "label" : "D Label" , 
-                      "value" : 196.45946739256
-                    } , 
-                    { 
-                      "label" : "E Label" ,
-                      "value" : 0.19434030906893
-                    } , 
-                    { 
-                      "label" : "F Label" , 
-                      "value" : -98.079782601442
-                    } , 
-                    { 
-                      "label" : "G Label" , 
-                      "value" : -13.925743130903
-                    } , 
-                    { 
-                      "label" : "H Label" , 
-                      "value" : -5.1387322875705
-                    }
-                  ]
-                }
-              ]
-            
-            }
-
-        </script>
+        <script src="@routes.Assets.versioned("javascripts/importData.js")" type="text/javascript"></script>
         
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script src="http://dimplejs.org/dist/dimple.v2.1.6.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
         
-        <script>
-  
-            
-              
-         </script>
+        <title>Video Game Sales</title>
     </head>
-  <body onload="javascript:alterText()">
-  
-    <h1>@message</h1>
-    <a id="value"></a>
-    <h2>
-      <p>Click on any link to go to the corresponding dataset</p>
-    </h2>
-    <br> <hr class="style1" > </br>
+  <body>
+    
+    <style>
+    
+    #chart svg {height: 500px;border-style: dotted}
+        
+    </style>
+    
+    
+    <h1 align="center"><script>allData()</script></h1>
+    
+    
+    <h2><p>Click on any link to go to the corresponding dataset</p></h2>
+    <br> <hr class="style1"> </br>
+    
+    <p id="demo"></p>
     <h3>
-      <a href="/eu_sales">EU Sales</a>
-      <a href="/na_sales">NA Sales</a>
-      <a href="/jp_sales">JP Sales</a>
-      <a href="/other_sales">Other Sales</a>
-      <a href="/global_sales">Global Sales</a>
-      <br><p><a href="/sales">Link to JSON dataset</a></p></br>
+        <a href="" onClick="euData()" id='@content'>EU Sales</a>
+        <a href="/na_sales" onClick="naData()">NA Sales</a>
+        <a href="/jp_sales" onClick="allData()">JP Sales</a>
+        <a href="/other_sales">Other Sales</a>
+        <a href="/global_sales">Global Sales</a>
+        <br><p><a href="/sales">Link to JSON dataset</a></p></br>
     </h3>
-      <br> <hr class="style1" > </br>
+    
+    <br> <hr class="style1"> </br>
+
+    <script type="text/javascript">
+        var newdata, ooparse, ooo;
+        function euData() {
+        var data = "@content";
+        newdata= (data.replace(/&quot;/g,'"'));
+            alert(newdata); ooo = JSON.stringify(newdata);
+            alert(ooo);
+        ooparse = JSON.parse(ooo); alert(ooparse);
+        }
+        
+        var da=[
+        {"Region":"NA","Sales":4392.950000000332},
+        {"Region":"EU","Sales":2434.13000000055},
+        {"Region":"JP","Sales":1291.0199999999018},
+        {"Region":"Other","Sales":797.7499999998826},
+        {"Region":"Global","Sales":8920.440000001283}]
+        var width = 800,
+            height = 450,
+            radius = Math.min(width, height) / 2;
+        
+        var color = d3.scale.category20();
+        
+        var arc = d3.svg.arc()
+            .outerRadius(radius - 10)
+            .innerRadius(0);
+        
+        var pie = d3.layout.pie()
+            .sort(null)
+            .value(function (d) {
+            return d.Sales;
+        });
+        
+        var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+        
+            var g = svg.selectAll(".arc")
+                .data(pie(da))
+                .enter().append("g")
+                .attr("class", "arc");
+        
+            g.append("path")
+                .attr("d", arc)
+                .style("fill", function (d) {
+                return color(d.data.Region);
+            });
+        
+            g.append("text")
+                .attr("transform", function (d) {
+                return "translate(" + arc.centroid(d) + ")";
+            })
+                .attr("dy", ".35em")
+                .style("text-anchor", "middle")
+                .text(function (d) {
+                return d.data.Region;
+            });
+                
+    </script>
+    
+    
+    
+    
+    
   </body>
 </html>
