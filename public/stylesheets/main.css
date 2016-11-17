@@ -13,23 +13,16 @@ h1 {
 }
 
 h2 {
-  font-size: 20;
-  text-align: center;
-  font-weight: lighter;
-  padding-left: 20px;
-}
-
-h3{
-  font-size: 20;
+  font-size: 20px;
   text-align: center;
   font-weight: lighter;
   padding-left: 20px;
 }
 
 h4 {
-  font-size: 30;
+  font-size: 30px;
   text-align: center;;
-  font-weight: lighter;
+  font-weight: bold;
   padding-left: 20px;
 }
 

@@ -1,35 +1,13 @@
-New log file opened at Wed Nov 16 19:54:19 EST 2016 by 13263@darsh
-Taking next connection to: 61108
-New client attempting to connect on port: 61109-61108
-  Address = /172.17.107.186:61108
-This client on port 61109 has uuid 74643a0d-25c8-4fa2-befd-9b0bd5ac2a04 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
-Connected Clients: activator-74643a0d-25c8-4fa2-befd-9b0bd5ac2a04
-Taking next connection to: 61108
-New client attempting to connect on port: 61110-61108
-  Address = /172.17.107.186:61108
-Handshake exception on socket: 61110
-sbt.impl.ipc.HandshakeException: Unable to perform handshake
-	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
-	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
-	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
-Caused by: java.net.SocketException: Connection reset
-	at java.net.SocketInputStream.read(SocketInputStream.java:209)
-	at java.net.SocketInputStream.read(SocketInputStream.java:141)
-	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
-	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
-	at java.io.DataInputStream.readInt(DataInputStream.java:387)
-	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
-	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
-	... 2 more
-Taking next connection to: 61108
-New client attempting to connect on port: 61111-61108
-  Address = /172.17.107.186:61108
-This client on port 61111 has uuid 5fa5fd10-64a9-4386-bbf1-241bf8ba9a6f configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
-Connected Clients: activator-74643a0d-25c8-4fa2-befd-9b0bd5ac2a04, activator-5fa5fd10-64a9-4386-bbf1-241bf8ba9a6f
-Taking next connection to: 61108
-New client attempting to connect on port: 61127-61108
-  Address = /172.17.107.186:61108
-Handshake exception on socket: 61127
+New log file opened at Wed Nov 16 20:18:30 EST 2016 by 13618@darsh
+Taking next connection to: 61968
+New client attempting to connect on port: 61969-61968
+  Address = /172.17.107.186:61968
+This client on port 61969 has uuid e8ba0400-7414-4e92-9c88-49ce5147d8f8 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-e8ba0400-7414-4e92-9c88-49ce5147d8f8
+Taking next connection to: 61968
+New client attempting to connect on port: 61970-61968
+  Address = /172.17.107.186:61968
+Handshake exception on socket: 61970
 sbt.impl.ipc.HandshakeException: Unable to perform handshake
 	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
 	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
@@ -39,24 +17,51 @@ Caused by: java.io.EOFException
 	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
 	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
 	... 2 more
-Taking next connection to: 61108
-New client attempting to connect on port: 61128-61108
-  Address = /172.17.107.186:61108
-This client on port 61128 has uuid 5c1aa4c3-67c9-4f67-a735-de35aa4afef2 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: activator-74643a0d-25c8-4fa2-befd-9b0bd5ac2a04, play-fork-run-5c1aa4c3-67c9-4f67-a735-de35aa4afef2
-Taking next connection to: 61108
+Taking next connection to: 61968
+New client attempting to connect on port: 61971-61968
+  Address = /172.17.107.186:61968
+This client on port 61971 has uuid 19414d43-3453-44a6-9bad-0c5db7cb920e configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-e8ba0400-7414-4e92-9c88-49ce5147d8f8, activator-19414d43-3453-44a6-9bad-0c5db7cb920e
+Taking next connection to: 61968
+New client attempting to connect on port: 61978-61968
+  Address = /172.17.107.186:61968
+Handshake exception on socket: 61978
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 61968
+New client attempting to connect on port: 61979-61968
+  Address = /172.17.107.186:61968
+This client on port 61979 has uuid b1d56864-447d-4a2a-a227-485db77ce9b0 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: activator-e8ba0400-7414-4e92-9c88-49ce5147d8f8, activator-19414d43-3453-44a6-9bad-0c5db7cb920e, play-fork-run-b1d56864-447d-4a2a-a227-485db77ce9b0
+Taking next connection to: 61968
 Checking to see if clients are empty...
 We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 61108
+Taking next connection to: 61968
 Checking to see if clients are empty...
 We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 61108
+Taking next connection to: 61968
 Checking to see if clients are empty...
 We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 61108
+Taking next connection to: 61968
 Checking to see if clients are empty...
 We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 61108
+Taking next connection to: 61968
 Checking to see if clients are empty...
 We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 61108
+Taking next connection to: 61968
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 61968
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 61968
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 61968

@@ -3,11 +3,10 @@ package controllers
 import javax.inject._
 import play.api._
 import play.api.mvc._
+// imported json to work with source files
 import play.api.libs.json._
 import scala.io.Source
 import play.api.libs.functional.syntax._
-
-//import play.api.libs.json.JsValue // work on this, it might be a way to send json unhindered to views
 
   /**
   * This controller creates an `Action` to handle HTTP requests to the
