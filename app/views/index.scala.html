@@ -1,7 +1,4 @@
-
-@(message: String,content: play.api.libs.json.JsArray)
-
-
+@(value: Array[Double],header: String, message: String)
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,53 +10,38 @@
         <script src="http://dimplejs.org/dist/dimple.v2.1.6.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
         
-        <title>Video Game Sales</title>
+        <title>Data Analytics</title>
     </head>
   <body>
-    
     <style>
-    
     #chart svg {height: 500px;border-style: dotted}
-        
     </style>
+ 
+    <h1 align="center">@header</h1>
     
-    
-    <h1 align="center"><script>allData()</script></h1>
-    
-    
-    <h2><p>Click on any link to go to the corresponding dataset</p></h2>
-    <br> <hr class="style1"> </br>
-    
-    <p id="demo"></p>
-    <h3>
-        <a href="" onClick="euData()" id='@content'>EU Sales</a>
-        <a href="/na_sales" onClick="naData()">NA Sales</a>
-        <a href="/jp_sales" onClick="allData()">JP Sales</a>
-        <a href="/other_sales">Other Sales</a>
-        <a href="/global_sales">Global Sales</a>
-        <br><p><a href="/sales">Link to JSON dataset</a></p></br>
-    </h3>
-    
-    <br> <hr class="style1"> </br>
+    <h2><p>@message</p></h2>
 
+    <hr class="style1">
+    <h3>
+        <a href="/na_sales">NA Sales</a>
+        <a href="/eu_sales">EU Sales</a>
+        <a href="/jp_sales">JP Sales</a>
+        <a href="/other_sales">Other Sales</a>
+        <a href="/sales">Link to JSON dataset</a>
+    </h3>
+    <hr class="style1">
+    
+    <div  id='g' style="text-align:center;"></div>
+    
     <script type="text/javascript">
-        var newdata, ooparse, ooo;
-        function euData() {
-        var data = "@content";
-        newdata= (data.replace(/&quot;/g,'"'));
-            alert(newdata); ooo = JSON.stringify(newdata);
-            alert(ooo);
-        ooparse = JSON.parse(ooo); alert(ooparse);
-        }
-        
         var da=[
-        {"Region":"NA","Sales":4392.950000000332},
-        {"Region":"EU","Sales":2434.13000000055},
-        {"Region":"JP","Sales":1291.0199999999018},
-        {"Region":"Other","Sales":797.7499999998826},
-        {"Region":"Global","Sales":8920.440000001283}]
-        var width = 800,
-            height = 450,
+        {"Region":"NA","Sales":@value(0)},
+        {"Region":"EU","Sales":@value(1)},
+        {"Region":"JP","Sales":@value(2)},
+        {"Region":"Other","Sales":@value(3)}]
+        
+        var width = 400,
+            height = 400,
             radius = Math.min(width, height) / 2;
         
         var color = d3.scale.category20();
@@ -100,12 +82,8 @@
                 .text(function (d) {
                 return d.data.Region;
             });
-                
+            
     </script>
-    
-    
-    
-    
-    
-  </body>
+
+    </body>
 </html>

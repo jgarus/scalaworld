@@ -23,12 +23,7 @@ function allData ()
 
 function data () {
 /// Pie Chart		
-var data=[
-        {"Region":"NA","Sales":4392.950000000332},
-        {"Region":"EU","Sales":2434.13000000055},
-        {"Region":"JP","Sales":1291.0199999999018},
-        {"Region":"Other","Sales":797.7499999998826},
-        {"Region":"Global","Sales":8920.440000001283}]
+var data=@content;
 var width = 800,
     height = 450,
     radius = Math.min(width, height) / 2;
