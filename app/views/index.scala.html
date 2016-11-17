@@ -23,9 +23,9 @@
 
     <hr class="style1">
     <h3>
-        <a href="/na_sales">NA Sales</a>
-        <a href="/eu_sales">EU Sales</a>
-        <a href="/jp_sales">JP Sales</a>
+        <a href="/na_sales">North America Sales</a>
+        <a href="/eu_sales">Europe Sales</a>
+        <a href="/jp_sales">Japan Sales</a>
         <a href="/other_sales">Other Sales</a>
         <a href="/sales">Link to JSON dataset</a>
     </h3>
@@ -33,11 +33,13 @@
     
     <div  id='g' style="text-align:center;"></div>
     
+    <h4 align="center">Regional Sales</h4>
+    
     <script type="text/javascript">
         var da=[
-        {"Region":"NA","Sales":@value(0)},
-        {"Region":"EU","Sales":@value(1)},
-        {"Region":"JP","Sales":@value(2)},
+        {"Region":"North America","Sales":@value(0)},
+        {"Region":"Europe","Sales":@value(1)},
+        {"Region":"Japan","Sales":@value(2)},
         {"Region":"Other","Sales":@value(3)}]
         
         var width = 400,
