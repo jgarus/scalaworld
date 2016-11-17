@@ -1,7 +1,8 @@
 html, body{
   background-image: url("d_up.png");
+  text-align: center;
+  margin: 0 auto;
   width: auto;
-  margin-top: 10px;
   font-family: monospace;
 }
 h1 {
@@ -47,12 +48,12 @@ a:hover, a:active {
   background-color: #042860;
 }
 
-a.visited{
+.visited{
   color: #80000b;
 }
 
-hr.style2 {
-  border-top: 1px single #8c8b8b;
+.style2 {
+  border-top: 1px;
 }
 
 .footer {
@@ -63,4 +64,21 @@ hr.style2 {
   padding: 1rem;
   background-color: #00828f;
   text-align: center;
+}
+.Aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Aligner-item {
+  max-width: 50%;
+}
+
+.Aligner-item--top {
+  align-self: flex-start;
+}
+
+.Aligner-item--bottom {
+  align-self: flex-end;
 }
